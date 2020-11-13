@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const signup = (req, res) => {
     bcrypt.genSalt(10, (err, salt) => {
         if(err){
+            console.log(err)
             res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
         }
         bcrypt.hash(req.body.password, salt, (err, hashedPwd) => {
