@@ -13,6 +13,7 @@ const signup = (req, res) => {
         }
         bcrypt.hash(req.body.password, salt, (err, hashedPwd) => {
             if(err){
+                console.log(err)
                 res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
             }
             req.body.password = hashedPwd;
