@@ -10,16 +10,7 @@ const getProfile = (req, res) => {
         sort = 'ASC';
     
     User.findByPk(req.user.id, {
-        include: [
-            // {
-            //     model: City,
-            //     attributes: ['id', 'name', 'state', 'img', 'country']
-            // },
-            // {
-            //     model: Post,
-            //     attributes: ['id', 'title', 'img']
-            // }
-        ],
+        include: [],
         attributes: ['id', 'name', 'username', 'img', 'createdAt', 'email'],
         order: [
             [{model: Post}, 'createdAt', sort]
