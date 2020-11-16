@@ -10,8 +10,7 @@ const routes = require('./routes');
 const constants = require('./constants');
 
 const corsOptions = {
-    // origin: ['http://lagers_lumber_creations.surge.sh/'],
-    origin: ['https://lagers_lumber_creations.surge.sh'],
+    origin: ['http://localhost:3000'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
@@ -37,12 +36,9 @@ const verifyToken = (req, res, next) => {
 }
 
 app.use('/auth', routes.auth);
-// app.use('/city', routes.city);
-// app.use('/post/all', routes.post);
-// app.use('/post/city', routes.post);
+app.use('/product', routes.product);
 app.use('/auth/verify', verifyToken, routes.auth);
 app.use('/user', verifyToken, routes.user);
-// app.use('/post', verifyToken, routes.post);
 
 
 app.listen(process.env.PORT, () => {

@@ -1,5 +1,5 @@
 const User = require('../models').User;
-// const City = require('../models').City;
+const Product = require('../models').Product;
 // const Post = require('../models').Post;
 
 const constants = require('../constants');
@@ -11,9 +11,9 @@ const getProfile = (req, res) => {
     
     User.findByPk(req.user.id, {
         include: [],
-        attributes: ['id', 'name', 'username', 'img', 'createdAt', 'email'],
+        attributes: ['id', 'name', 'username', 'img', 'created_at', 'email'],
         order: [
-            [{model: Post}, 'createdAt', sort]
+            [{model: Product}, 'createdAt', sort]
         ]
     })
     .then(userProfile => {
