@@ -33,12 +33,6 @@ const editProfile = (req, res) => {
     })
     .then(() => {
         User.findByPk(req.user.id, {
-            include: [
-                // {
-                //     model: City,
-                //     attributes: ['id', 'name', 'state', 'img', 'country']
-                // }
-            ],
             attributes: ['id', 'name', 'username', 'img', 'createdAt', 'email']
         })
         .then(userProfile => {
