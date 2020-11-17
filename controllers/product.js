@@ -8,7 +8,6 @@ const getAll = (req, res) => {
         res.status(constants.SUCCESS).json(products)
     })
     .catch(err => {
-        console.log(err)
         res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
     })
 }
