@@ -1,6 +1,5 @@
 const User = require('../models').User;
 const Product = require('../models').Product;
-// const Post = require('../models').Post;
 
 const constants = require('../constants');
 
